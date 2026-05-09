@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>HexNoir.AIM - Free Fire Sensitivity Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <h1 class="logo-text">HexNoir.AIM</h1>
+                    <span class="logo-badge">| Free Fire Sensitivity</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="two-columns">
+                <!-- Left Column - Search & Filter -->
+                <div class="left-panel">
+                    <!-- Search Section -->
+                    <div class="card search-card">
+                        <div class="card-header">
+                            <span class="card-icon">🔍</span>
+                            <h3>TÌM KIẾM THIẾT BỊ</h3>
+                        </div>
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Nhập tên máy (VD: iPhone 11, Samsung A54...)" class="search-input">
+                            <button id="searchBtn" class="btn-primary">
+                                <span>🔍</span> FIND
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filter Section -->
+                    <div class="card filter-card">
+                        <div class="card-header">
+                            <span class="card-icon">🎮</span>
+                            <h3>LỌC THEO THƯƠNG HIỆU</h3>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Thương hiệu:</label>
+                            <select id="brandFilter" class="filter-select">
+                                <option value="all">Tất cả</option>
+                                <option value="Apple">🍎 Apple</option>
+                                <option value="Samsung">📱 Samsung</option>
+                                <option value="Xiaomi">📲 Xiaomi</option>
+                                <option value="Oppo">📷 Oppo</option>
+                                <option value="Vivo">🎵 Vivo</option>
+                                <option value="Realme">⚡ Realme</option>
+                                <option value="OnePlus">💨 OnePlus</option>
+                                <option value="Google">🔵 Google</option>
+                                <option value="Nothing">◻️ Nothing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Device List -->
+                    <div class="card device-list-card">
+                        <div class="card-header">
+                            <span class="card-icon">📱</span>
+                            <h3>DANH SÁCH THIẾT BỊ</h3>
+                        </div>
+                        <div class="device-search">
+                            <input type="text" id="deviceSearch" placeholder="Lọc thiết bị..." class="device-search-input">
+                        </div>
+                        <div class="device-list-container">
+                            <ul id="deviceList" class="device-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Results -->
+                <div class="right-panel">
+                    <div class="card result-card">
+                        <div class="card-header">
+                            <span class="card-icon">📊</span>
+                            <h3>KẾT QUẢ ĐỘ NHẠY</h3>
+                            <span id="selectedDevice" class="selected-device">Chưa chọn thiết bị</span>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="progress-section">
+                            <div class="progress-bar-container">
+                                <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div id="progressText" class="progress-text">Sẵn sàng tạo độ nhạy</div>
+                        </div>
+
+                        <!-- Sensitivity Results -->
+                        <div class="sensitivity-results">
+                            <div class="sensitivity-item">
+                                <div class="sensitivity-info">
+                                    <span class="sensitivity-icon">👁️</span>
+                                    <span class="sensitivity-name">NHÌN XUNG QUANH</span>
+                                </div>
+                                <span id="nhiemXungQuanh" class="sensitivity-value">--</span>
+                            </div>
+                            <div class="sensitivity-item">
+                                <div class="sensitivity-info">
+                                    <span class="sensitivity-icon">🔴</span>
+                                    <span class="sensitivity-name">RED DOT</span>
+                                </div>
+                                <span id="redDot" class="sensitivity-value">--</span>
+                            </div>
+                            <div class="sensitivity-item">
+                                <div class="sensitivity-info">
+                                    <span class="sensitivity-icon">🔭</span>
+                                    <span class="sensitivity-name">SCOPE 2X</span>
+                                </div>
+                                <span id="scope2x" class="sensitivity-value">--</span>
+                            </div>
+                            <div class="sensitivity-item">
+                                <div class="sensitivity-info">
+                                    <span class="sensitivity-icon">🔬</span>
+                                    <span class="sensitivity-name">SCOPE 4X</span>
+                                </div>
+                                <span id="scope4x" class="sensitivity-value">--</span>
+                            </div>
+                            <div class="sensitivity-item">
+                                <div class="sensitivity-info">
+                                    <span class="sensitivity-icon">🔫</span>
+                                    <span class="sensitivity-name">NÚT BẮN</span>
+                                </div>
+                                <span id="nutBan" class="sensitivity-value">--</span>
+                            </div>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <button id="generateBtn" class="btn-generate">
+                            <span>⚡</span> TẠO ĐỘ NHẠY <span>⚡</span>
+                        </button>
+
+                        <!-- History Section -->
+                        <div class="history-section">
+                            <div class="history-header">
+                                <span class="history-icon">📜</span>
+                                <span>LỊCH SỬ TRA CỨU</span>
+                            </div>
+                            <ul id="historyList" class="history-list">
+                                <li class="history-empty">Chưa có lịch sử</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 HexNoir.AIM - Tối ưu độ nhạy Free Fire cho mọi thiết bị</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
